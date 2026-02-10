@@ -1,0 +1,7 @@
+timestamp,username,ip_address,esito_accesso
+2026-01-10 08:45,mrossi,192.168.1.10,OK
+2026-01-10 08:47,mrossi,192.168.1.10,OK
+2026-01-10 08:49,mrossi,203.0.113.45,FAIL
+2026-01-10 08:50,mrossi,203.0.113.45,FAIL
+2026-01-10 08:51,mrossi,203.0.113.45,FAIL
+2026-01-10 09:15,lbianchi,192.168.1.22,OK
