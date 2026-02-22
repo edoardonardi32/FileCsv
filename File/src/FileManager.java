@@ -2,7 +2,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -18,21 +18,21 @@ import java.util.ArrayList;
 public class FileManager {
     String nomeFile = "LogAccessi.csv";
     ArrayList<Dato> lista = new ArrayList<>();
+    Dato d;
     public ArrayList<Dato> Leggi(){
-    try (BufferedReader reader = new BufferedReader(new FileReader(nomeFile))) {
-        String riga;
-        reader.readLine();
-        while ((riga = reader.readLine()) != null) {
-            String[] dati = riga.split(",");
-            for(int i = 0; i < dati.length; i++){
-                DateTimeFormatter formatter =DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate giorno = LocalDate.parse(dati[2], formatter);
-                Dato d= new Dato(dati[0],dati[1],giorno,dati[3]);
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeFile))) {
+            String riga;
+            reader.readLine();
+            while ((riga = reader.readLine()) != null) {
+                String[] dati = riga.split(",");
+                for(int i = 0; i < dati.length; i++){
+                    DateTimeFormatter formatter =DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                    LocalDateTime giorno = LocalDateTime.parse(dati[0], formatter);
+                    d = new Dato(giorno,dati[1],dati[2],dati[3]);
+                    }
+                lista.add(d);
                 }
-            lista.add(d);
             }
-        }
-            
             catch (IOException e) {
             System.out.println("Errore nella lettura del file");
         }

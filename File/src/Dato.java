@@ -1,5 +1,5 @@
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,15 +11,16 @@ import java.time.LocalDate;
  * @author nardi.edoardo
  */
 public class Dato {
+    LocalDateTime data;
+    String nome;
     String ip;
     String accesso;
-    LocalDate data;
-    String nome;
+    
 
-    Dato(String ip,String accesso,LocalDate data,String nome) {
-        this.ip=ip;
-        this.accesso=accesso;
+    Dato(LocalDateTime data,String nome,String ip,String accesso) {
         this.data=data;
         this.nome=nome;
+        this.ip=ip;
+        this.accesso=accesso;
     }
 }
